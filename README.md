@@ -2,7 +2,7 @@
 In this repository I follow along with Karpathy's deep learning series ["Zero to Hero"](https://karpathy.ai/zero-to-hero.html), and write notes and code.
 
 # Overview
-So far I completed the following parts of his lessons:
+So far I have completed the following parts of his lessons:
 
 1. Micrograd  
   * Description:
@@ -34,6 +34,14 @@ So far I completed the following parts of his lessons:
   	* A walkthrough of all the information given in the lecture has been written to notebook two in the folder /notebooks/bigram
 
 4. Language Modelling: Part 3
+  * Description:
+  	* We examine and diagnose the multilayer perceptron (MLP).
+  * Links:
+    * [Youtube-Lecture](https://www.youtube.com/watch?v=P6sfmUTpUmc)
+    * [Karpathys-Github](https://github.com/karpathy/makemore)
+  * Files:
+  	* A walkthrough of all the information given in the lecture has been written to notebook three in the folder /notebooks/bigram
+
 5. Language Modelling: Part 4
 6. Language Modelling: Part 5
 7. GPT From Scratch
