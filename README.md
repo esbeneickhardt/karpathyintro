@@ -43,5 +43,14 @@ So far I have completed the following parts of his lessons:
   	* A walkthrough of all the information given in the lecture has been written to notebook three in the folder /notebooks/bigram
 
 5. Language Modelling: Part 4
+  * Description:
+  	* We dive deep into backpropagation by manually going backwards through the 2-layer MLP (with BatchNorm) from the previous lesson. Along the way we learn to understand how pytorch is optimised, and we learn how to debug the networks better.
+  * Links:
+    * [Youtube-Lecture](https://www.youtube.com/watch?v=q8SA3rM6ckI)
+    * [Karpathys-Github](https://github.com/karpathy/makemore)
+  * Files:
+  	* A walkthrough of all the information given in the lecture has been written to notebook four in the folder /notebooks/bigram
+
+
 6. Language Modelling: Part 5
 7. GPT From Scratch
