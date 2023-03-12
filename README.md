@@ -42,7 +42,7 @@ So far I have completed the following parts of his lessons:
   * Files:
   	* A walkthrough of all the information given in the lecture has been written to notebook three in the folder /notebooks/bigram
 
-5. Language Modelling: Part 4 (ONGOING)
+5. Language Modelling: Part 4
   * Description:
   	* We dive deep into backpropagation by manually going backwards through the 2-layer MLP (with BatchNorm) from the previous lesson. Along the way we learn to understand how pytorch is optimised, and we learn how to debug the networks better.
   * Links:
@@ -52,4 +52,20 @@ So far I have completed the following parts of his lessons:
   	* A walkthrough of all the information given in the lecture has been written to notebook four in the folder /notebooks/bigram
 
 6. Language Modelling: Part 5
+  * Description:
+  	* We will be creating a convolutional neural network with a similar architecture to that of WaveNet (2016) from DeepMind. 
+  * Links:
+    * [Youtube-Lecture](https://www.youtube.com/watch?v=t3YJ5hKiMQ0)
+    * [Karpathys-Github](https://github.com/karpathy/makemore)
+  * Files:
+  	* A walkthrough of all the information given in the lecture has been written to notebook five in the folder /notebooks/bigram
+
 7. GPT From Scratch
+  * Description:
+  	* 
+  * Links:
+    * [Youtube-Lecture]()
+    * [Karpathys-Github]()
+  * Files:
+  	* A walkthrough of all the information given in the lecture has been written to notebook five in the folder /notebooks/bigram
+
