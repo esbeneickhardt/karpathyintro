@@ -58,7 +58,7 @@ So far I have completed the following parts of his lessons:
     * [Youtube-Lecture](https://www.youtube.com/watch?v=t3YJ5hKiMQ0)
     * [Karpathys-Github](https://github.com/karpathy/makemore)
   * Files:
-  	* A walkthrough of all the information given in the lecture has been written to notebook five in the folder /notebooks/bigram
+  	* A walkthrough of all the information given in the lecture has been written to notebook five and six in the folder /notebooks/bigram
 
 7. GPT From Scratch
   * Description:
@@ -67,5 +67,5 @@ So far I have completed the following parts of his lessons:
     * [Youtube-Lecture]()
     * [Karpathys-Github]()
   * Files:
-  	* A walkthrough of all the information given in the lecture has been written to notebook five in the folder /notebooks/bigram
+  	* A walkthrough of all the information given in the lecture has been written to notebook seven in the folder /notebooks/bigram
 
