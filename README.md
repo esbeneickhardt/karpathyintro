@@ -62,10 +62,10 @@ So far I have completed the following parts of his lessons:
 
 7. GPT From Scratch
   * Description:
-  	* 
+  	* We will be building a Generatively Pretrained Transformer (GPT) from scratch by following the "Attention is All You Need" paper. 
   * Links:
-    * [Youtube-Lecture]()
-    * [Karpathys-Github]()
+    * [Youtube-Lecture](https://www.youtube.com/watch?v=kCc8FmEb1nY)
+    * [Karpathys-Github](https://github.com/karpathy/nanoGPT)
   * Files:
-  	* A walkthrough of all the information given in the lecture has been written to notebook seven in the folder /notebooks/bigram
+  	* A walkthrough of all the information given in the lecture has been written to notebook one in the folder /notebooks/gpt
 
