@@ -202,24 +202,3 @@ for step in range(max_steps):
 model_input = torch.zeros((1,1), dtype=torch.long) # Input token 0, which is \n
 model_output = model.generate(model_input, max_new_tokens=300)[0].tolist()
 print(f"Generated Text: \n {decode(model_output)}")
-
-# Function for estimating loss
-@torch.no_grad()
-def estimate_loss():
-    """
-    Description:
-        Estimates losses on train and valid
-    Outputs:
-        out: Mean loss across eval_iters items
-    """
-    out = {}
-    model.eval()
-    for split in ['train', 'valid']:
-        losses = torch.zeros(eval_iters)
-        for k in range(eval_iters):
-            X,Y = get_batch(split, batch_size, block_size)
-            logits, loss = model(X, Y)
-            losses[k] = loss.item()
-        out[split] = losses.mean()
-    model.train()
-    return out

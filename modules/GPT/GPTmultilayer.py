@@ -106,13 +106,13 @@ class MultiHeadAttention(nn.Module):
         out = torch.cat([h(x) for h in self.heads], dim=-1)
         return out
 
-class FeedFoward(nn.Module):
+class FeedForward(nn.Module):
     """ A linear layer followed by a non-linearity """
 
-    def __init__(self, n_embd):
+    def __init__(self, n_embed):
         super().__init__()
         self.net = nn.Sequential(
-            nn.Linear(n_embd, n_embd),
+            nn.Linear(n_embed, n_embed),
             nn.ReLU(),
         )
 
@@ -122,17 +122,17 @@ class FeedFoward(nn.Module):
 class Block(nn.Module):
     """ Transformer block: communication followed by computation """
 
-    def __init__(self, n_embd, n_head):
+    def __init__(self, n_embed, n_head):
         """ Transformer block """
         super().__init__()
-        head_size = n_embd // n_head
+        head_size = n_embed // n_head
         self.sa = MultiHeadAttention(n_head, head_size)
-        self.ffw = FeedFoward(n_embd)
+        self.ffw = FeedForward(n_embed)
 
     def forward(self, x):
         """ Adding Attention and ffw to X """
-        x = x + self.sa(x)
-        x = x + self.ffw(x)
+        x = self.sa(x)
+        x = self.ffw(x)
         return x
 
 class BigramLanguageModel(nn.Module):

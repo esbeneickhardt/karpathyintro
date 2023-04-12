@@ -106,13 +106,13 @@ class MultiHeadAttention(nn.Module):
         out = torch.cat([h(x) for h in self.heads], dim=-1)
         return out
 
-class FeedFoward(nn.Module):
+class FeedForward(nn.Module):
     """ A linear layer followed by a non-linearity """
 
-    def __init__(self, n_embd):
+    def __init__(self, n_embed):
         super().__init__()
         self.net = nn.Sequential(
-            nn.Linear(n_embd, n_embd),
+            nn.Linear(n_embed, n_embed),
             nn.ReLU(),
         )
 
@@ -127,7 +127,7 @@ class BigramLanguageModel(nn.Module):
         self.token_embedding_table = nn.Embedding(vocab_size, n_embed)
         self.position_embedding_table = nn.Embedding(block_size, n_embed)
         self.sa_heads = MultiHeadAttention(4, n_embed//4)
-        self.ffw = FeedFoward(n_embed)
+        self.ffw = FeedForward(n_embed)
         self.lm_head = nn.Linear(n_embed, vocab_size)
     
     def forward(self, idx: torch.tensor, targets: torch.tensor=None) -> tuple:

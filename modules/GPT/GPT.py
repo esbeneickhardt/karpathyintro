@@ -9,12 +9,14 @@ device = 'cuda' if torch.cuda.is_available else 'cpu'; device = 'cpu'
 #######################
 ### Hyperparameters ###
 #######################
-batch_size = 64
-block_size = 164
+batch_size = 32
+block_size = 16
 max_steps = 10000
 eval_interval = 300
 learning_rate = 3e-3
 eval_iters = 200
+n_head = 5
+n_layer = 5
 n_embed = 32 
 dropout = 0.2
 
@@ -103,7 +105,7 @@ class MultiHeadAttention(nn.Module):
         """ Multiple heads in parallel """
         super().__init__()
         self.heads = nn.ModuleList([Head(head_size) for _ in range(num_heads)])
-        self.proj = nn.Linear(n_embed * num_heads, n_embed)
+        self.proj = nn.Linear(head_size * num_heads, n_embed)
         self.dropout = nn.Dropout(dropout)
         
     def forward(self, x):
@@ -152,14 +154,8 @@ class BigramLanguageModel(nn.Module):
         super().__init__()
         self.token_embedding_table = nn.Embedding(vocab_size, n_embed)
         self.position_embedding_table = nn.Embedding(block_size, n_embed)
-        self.blocks = nn.Sequential(
-            Block(n_embed, n_head=4),
-            Block(n_embed, n_head=4),
-            Block(n_embed, n_head=4),
-            Block(n_embed, n_head=4),
-            Block(n_embed, n_head=4),
-            nn.LayerNorm(n_embed),
-        )
+        self.blocks = nn.Sequential(*[Block(n_embed, n_head=n_head) for _ in range(n_layer)])
+        self.ln_f = nn.LayerNorm(n_embed)
         self.lm_head = nn.Linear(n_embed, vocab_size)
     
     def forward(self, idx: torch.tensor, targets: torch.tensor=None) -> tuple:
@@ -168,7 +164,8 @@ class BigramLanguageModel(nn.Module):
         tok_emb = self.token_embedding_table(idx) # (B,T,embed_size)
         pos_emb = self.position_embedding_table(torch.arange(T, device=device)) # (T,C)
         x = tok_emb + pos_emb
-        x = self.blocks(x)
+        x = self.blocks(x) 
+        x = self.ln_f(x)
         logits = self.lm_head(x) # (B,T,vocab_size)
         
         if targets is None:
